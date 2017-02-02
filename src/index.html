@@ -1,15 +1,30 @@
 <!doctype html>
-<html ng-app>
+<html>
   <head>
+		<title>HangmanApp</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 		<script src="app.js"></script>
   </head>
   <body ng-app="HangmanApp" ng-controller="GameController">
     <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{demo}}!</h1>
+			<div>
+				Guesses Left :: {{ guesses }}
+			</div>
+			<div class="incorrectGuesses">
+				Incorrect Guesses :: <span ng-repeat="letter in incorrectLettersChosen"> {{ letter }} </span>
+			</div>
+			<div>
+				Your Correct Guesses :: <span ng-repeat="letter in correctLettersChosen"> {{ letter }} </span>
+			</div>
+			<div>
+				You have to guess:: {{ displayWord }}
+			</div>
+			<div>
+				<div>
+					<input type="text" name="guess" ng-model="input.letter">
+					<button type="submit" ng-click="letterChosen">Submit</button>
+			</div>
+			</div>
     </div>
   </body>
 </html>
